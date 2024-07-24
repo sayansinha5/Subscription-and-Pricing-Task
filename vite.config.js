@@ -5,10 +5,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  server: {
-    port: 3000,
-    open: true,
-  },
   define: {
     "process.env": {},
   },
@@ -16,13 +12,15 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
       "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
-      "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
+      "@components": fileURLToPath(
+        new URL("./src/components", import.meta.url),
+      ),
       "@layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
       "@views": fileURLToPath(new URL("./src/views", import.meta.url)),
       "@contexts": fileURLToPath(new URL("./src/contexts", import.meta.url)),
     },
   },
-    esbuild: {
+  esbuild: {
     loader: "jsx",
     include: [
       // Business as usual for .jsx and .tsx files
